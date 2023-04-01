@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <base href="/public"
     <style type="text/css">
       label
       { 
@@ -38,45 +39,34 @@
     <div class ="container", style="padding-top:10px;">
       {{-- //message for verification of status to keep user updated @once
              //system status --}}
-      
+           
              
     <h1> Add a verified group </h1>
-      <form action="{{ url('upload_verified') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ url('sendemail',$data->id)}}" method="POST" >
         @csrf
         <div style="padding:10px;">
-            <label> Charity Group Name</label>
-            <input type = "text" style= "color:black"; name="name" placeholder="Write the name" required="">
+            <label> Greetings </label>
+            <input type = "text" style= "color:black"; name="greeting"  required="">
         </div>
         <div style="padding:10px;">
-            <label> Phone Number</label>
-            <input type = "number" style= "color:black"; name="phone" placeholder="Write your phone number" required="">
+            <label> Body </label>
+            <input type = "text" style= "color:black"; name="body"  required="">
         </div>
         <div style="padding:10px;">
-            <label> Location</label>
-            <input type = "text" style= "color:black"; name="location" placeholder="Write location here" required="">
+            <label> Action Text</label>
+            <input type = "text" style= "color:black"; name="actiontext"  required="">
         </div>
         <div style="padding:10px;">
-            <label> Website address</label>
-            <input type = "text" style= "color:black"; name="website" placeholder="ex. www.abc.co.ke" required="">
+            <label> Action Url</label>
+            <input type = "text" style= "color:black"; name="actionurl"  required="">
         </div>
         <div style="padding:10px;">
-          <label> Email</label>
-          <input type = "text" style= "color:black"; name="email" placeholder="xyz@gmail.com" required="">
+          <label> Sign Off</label>
+          <input type = "text" style= "color:black"; name="endpart"  required="">
       </div>
-        <div style="padding:10px;">
-            <label> Speciality</label>
-            <select name="speciality" style="color:black"; width:200px required="">
-                <option>-----SELECT-----</option>
-               <option value="Education">Education</option>
-               <option value="Health care">Health care</option>
-               <option value="Child Care">Child Care</option>
-               <option value="Food and water">Food and water</option>
-            </select>
-        </div>
-        <div style="padding:10px;">
-            <label> Photo</label>
-            <input type="file" name="file" required="">
-        </div>
+       
+    
+     
 
         <div style="padding:10px;">
             

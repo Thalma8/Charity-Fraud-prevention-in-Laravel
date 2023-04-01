@@ -1,5 +1,5 @@
 <div class="page-section">
-    <div class="container", style="background-color:  #777777">
+    <div class="container", style="background-color: #bc9e82">
       <h1 class="text-center wow fadeInUp">Request verification</h1>
 
       <form class="main-form" action="{{ url('requests') }}" method="POST" >

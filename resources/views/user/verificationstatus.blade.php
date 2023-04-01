@@ -19,17 +19,6 @@
   <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../assets/css/theme.css">
-  <style>
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #2d812f;
-      z-index: 9999;
-    }
-    
-  </style>
 </head>
 <body style="background-color:  #2d812f">
 
@@ -44,7 +33,7 @@
             <div class="site-info">
               <a style="color: black" href="#"><span class="mai-call text-primary"></span> +254 748 123 990</a>
               <span class="divider">|</span>
-              <a href="mailto:thalmathandie01@gmail.com"><span class="mai-mail text-primary" ></span> charitymanagementsys@gmail.com</a>
+              <a href="#"><span class="mai-mail text-primary" ></span> charitymanagementsys@gmail.com</a>
             </div>
           </div>
           <div class="col-sm-4 text-right text-sm">
@@ -61,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container" >
-        <a class="navbar-brand" href="{{ (url('/')) }}"><span class="text-primary"></span>Charity Fraud Prevention</a>
+        <a class="navbar-brand" href="#"><span class="text-primary"></span>Charity Fraud Prevention</a>
 
        
 
@@ -73,30 +62,25 @@
           <ul class="navbar-nav ml-auto">
             {{-- <li class="nav-item active">  this is how the next line was looking like--}}
             <li class="nav-item">
-              <a style="color: white" class="nav-link" href={{ (url('/')) }}>Home</a>
+              <a style="color: white" class="nav-link" href={{ (url('/'))}}>Home</a>
             </li>
             <li class="nav-item">
-              <a style="color: white" class="nav-link" href="#about">About Us</a>
+              <a style="color: white" class="nav-link" href="about.html">About Us</a>
             </li>
-           
-           
+            <li class="nav-item">
+              <a style="color: white" class="nav-link" href="doctors.html">Verified Charity Groups</a>
+            </li>
+            <li class="nav-item" >
+            </li>
+            <li class="nav-item">
+              <a style="color: white" class="nav-link" href="contact.html">Request Verification</a>
+            </li>
             @if(Route::has('login'))
 
 
             @auth
             <li class="nav-item">
-              <a class="nav-link" href="#verified" style="color: white" >Verified Charity Groups</a>
-            </li>
-            <li class="nav-item" >
-            </li>
-            <li class="nav-item">
-              <a style="color: white" class="nav-link" href="#request">Request Verification</a>
-            </li>
-            <li class="nav-item">
               <a style="color: white" class="nav-link" href="{{ url('verificationstatus') }}">My verification status</a>
-            </li>
-            <li class="nav-item">
-              <a style="color: white" class="nav-link" href="{{ url('reportedcases') }}">reported cases status</a>
             </li>
             <x-app-layout>
 
@@ -118,52 +102,40 @@
       </div> <!-- .container -->
     </nav>
   </header>
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+  {{-- request verification in progress message to keep the user updated on system status
+  --}}
+  <div align="center" style="padding:70px">
+    <table>
+        <tr style="background-color:black">
+            <th style="padding:20px;font-size:30px;color:white;">charity group name</th>
+            <th style="padding:20px;font-size:30px;color:white;">Date</th>
+            <th style="padding:20px;font-size:30px;color:white;">Speciality</th>
+            <th style="padding:20px;font-size:30px;color:white;">Status</th>
+            <th style="padding:20px;font-size:30px;color:white;">Cancel Verification Request</th>
+        </tr>
+        @foreach ( $request as $requests )
+        <tr style="background-color:black">
+            <td style="padding:20px;font-size:30px;color:white;">{{ $requests->name }}</td>
+            <td style="padding:20px;font-size:30px;color:white;">{{ $requests->date }}</td>
+            <td style="padding:20px;font-size:30px;color:white;">{{ $requests->speciality }}</td>
+            
+            <td style="padding:20px;font-size:30px;color:white;">{{ $requests->status }}</td>
+            <td><a class="bt btn-danger" onclick="return confirm('are you sure you want to delete .. the action is NOT reversable!!!') "href="{{url('cancel_request', $requests-> id)}}">Cancel<a></td>       
+        </tr>
+        @endforeach
+    </table>
+  </div>
+ 
 
-        <x-jet-validation-errors class="mb-4" />
+<script src="../assets/js/jquery-3.5.1.min.js"></script>
 
-        @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-        @endif
-<p> CHARITY FRAUD PREVENTION.</p>
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 
-            <div>
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+<script src="../assets/vendor/owl-carousel/js/owl.carousel.min.js"></script>
 
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
+<script src="../assets/vendor/wow/wow.min.js"></script>
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-jet-checkbox id="remember_me" name="remember" />
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
-
-                <x-jet-button class="ml-4">
-                    {{ __('Log in') }}
-                </x-jet-button>
-            </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+<script src="../assets/js/theme.js"></script>
+  
+</body>
 </html>

@@ -1,5 +1,5 @@
 <div class="page-section">
-    <div class="container", style="background-color: #777777">
+    <div class="container", style="background-color: #bc9e82">
       <h1 class="text-center mb-5 wow fadeInUp">Verified Charity Groups</h1>
 
       <div class="owl-carousel wow fadeInUp" id="doctorSlideshow">

@@ -19,19 +19,8 @@
   <link rel="stylesheet" href="../assets/vendor/animate/animate.css">
 
   <link rel="stylesheet" href="../assets/css/theme.css">
-  <style>
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #2d812f;
-      z-index: 9999;
-    }
-    
-  </style>
 </head>
-<body style="background-color:  #2d812f">
+<body style="background-color:  #4C1A1B">
 
   <!-- Back to top button -->
   <div class="back-to-top"></div>
@@ -42,9 +31,9 @@
         <div class="row">
           <div class="col-sm-8 text-sm">
             <div class="site-info">
-              <a style="color: black" href="#"><span class="mai-call text-primary"></span> +254 748 123 990</a>
+              <a href="#"><span class="mai-call text-primary"></span> +254 748 123 990</a>
               <span class="divider">|</span>
-              <a href="mailto:thalmathandie01@gmail.com"><span class="mai-mail text-primary" ></span> charitymanagementsys@gmail.com</a>
+              <a href="#"><span class="mai-mail text-primary" ></span> charitymanagementsys@gmail.com</a>
             </div>
           </div>
           <div class="col-sm-4 text-right text-sm">
@@ -61,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container" >
-        <a class="navbar-brand" href="{{ (url('/')) }}"><span class="text-primary"></span>Charity Fraud Prevention</a>
+        <a class="navbar-brand" href="#"><span class="text-primary"></span>Charity Fraud Prevention</a>
 
        
 
@@ -73,31 +62,23 @@
           <ul class="navbar-nav ml-auto">
             {{-- <li class="nav-item active">  this is how the next line was looking like--}}
             <li class="nav-item">
-              <a style="color: white" class="nav-link" href={{ (url('/')) }}>Home</a>
+              <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a style="color: white" class="nav-link" href="#about">About Us</a>
+              <a class="nav-link" href="about.html">About Us</a>
             </li>
-           
-           
+            <li class="nav-item">
+              <a class="nav-link" href="doctors.html">Verified Charity Groups</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href='resources\views\user\event'>Charity events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Request Verification</a>
+            </li>
             @if(Route::has('login'))
 
-
             @auth
-            <li class="nav-item">
-              <a class="nav-link" href="#verified" style="color: white" >Verified Charity Groups</a>
-            </li>
-            <li class="nav-item" >
-            </li>
-            <li class="nav-item">
-              <a style="color: white" class="nav-link" href="#request">Request Verification</a>
-            </li>
-            <li class="nav-item">
-              <a style="color: white" class="nav-link" href="{{ url('verificationstatus') }}">My verification status</a>
-            </li>
-            <li class="nav-item">
-              <a style="color: white" class="nav-link" href="{{ url('reportedcases') }}">reported cases status</a>
-            </li>
             <x-app-layout>
 
             </x-app-layout>
@@ -105,10 +86,10 @@
             @else
 
             <li class="nav-item">
-              <a style="background-color:  #4C1A1B" class="btn btn-primary ml-lg-3" href="{{ route('register') }}">Register</a>
+              <a style="background-color:  #bc9e82" class="btn btn-primary ml-lg-3" href="{{ route('register') }}">Register</a>
             </li>
             <li class="nav-item">
-                <a style="background-color:  #4C1A1B" class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
+                <a style="background-color:  #bc9e82" class="btn btn-primary ml-lg-3" href="{{ route('login') }}">Login</a>
               </li>
             @endauth
             @endif
@@ -130,9 +111,9 @@
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/charity.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
-        <span class="subhead">REPORT CHARITY FRAUD</span>
-        <h1 class="display-4">LETS MAKE CHARITY SAFE</h1>
-        <a href="{{ url('fraudreport') }}" class="btn btn-primary" style="background-color:  #2d812f">REPORT CASE</a>
+        <span class="subhead">MAKE A DONATION SAVE A LIFE</span>
+        <h1 class="display-4">TOUCH A LIFE</h1>
+        <a href="#" class="btn btn-primary" style="background-color:  #bc9e82">DONATE</a>
       </div>
     </div>
   </div>
@@ -147,7 +128,7 @@
               <div class="circle-shape bg-secondary text-white">
                 <span class="mai-chatbubbles-outline"></span>
               </div>
-              <p><span>Report</span> Charity Fraud cases</p>
+              <p><span>Donate</span> to a charity</p>
             </div>
           </div>
           <div class="col-md-4 py-3 py-md-0">
@@ -163,33 +144,36 @@
               <div class="circle-shape bg-accent text-white">
                 <span class="mai-basket"></span>
               </div>
-              <p><span>Request Verification</span> for your charity group</p>
+              <p><span>Post</span> an upcoming charity event</p>
             </div>
           </div>
         </div>
       </div>
     </div> <!-- .page-section -->
-<section id="about">
-@include('user.about')
-</section>
-@if(Route::has('login'))
 
+    <div class="page-section pb-0", style="background-color: #bc9e82">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 py-3 wow fadeInUp">
+            <h1>Welcome to the Charity Fraud Prevention System<br> Center</h1>
+            <p class="text-grey mb-4">Welcome to our charity fraud prevention website! We are dedicated to helping individuals and organizations make informed decisions when it comes to charitable giving. Our website is designed to provide you with the information you need to protect yourself and your donations from fraud and scams. We rely on expert research and analysis to provide you with the latest information on fraudulent charities and organizations.</p>
 
-@auth
-{{-- @include('user.events') --}}
-<section id="events">
+            <p class="text-grey mb-4">You will find a wide range of resources on our website, including lists of known fraudulent charities, tips for identifying and avoiding fraud, and advice on what to do if you suspect fraud. We also provide information on legitimate charities and organizations so you can make informed decisions about where to give. We encourage you to explore our website and take advantage of the information we have to offer. If you have any questions or concerns, please don't hesitate to contact us. Together, we can make a difference in the fight against charity fraud.</p>
+            <a href="about.html" class="btn btn-primary" , style="background-color:  #4C1A1B">Learn More</a>
+          </div>
+          <div class="col-lg-6 wow fadeInRight" data-wow-delay="400ms">
+            <div class="img-place custom-img-1">
+              <img src="../assets/img/charity_ water.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- .bg-light -->
+  </div> <!-- .bg-light -->
   @include('user.events')
-  </section>
-<section id="verified">
 @include('user.veri_charitys')
-</section>
-<section id="request">
 @include('user.request_veri')
-</section>
-@else
 
-@endauth
-@endif
   <footer class="page-footer" style="background-color:  #202022">
     <div class="container" style="background-color:  #4C1A1B">
       <div class="row px-md-3">
@@ -221,9 +205,9 @@
         </div>
         <div class="col-sm-6 col-lg-3 py-3">
           <h5>Contact</h5>
-          <p class="footer-link mt-2">kitengela, Kajiado , Kenya</p>
-          <a href="#" class="footer-link">+254 748 123 990</a>
-          <a href="#" class="footer-link">charitymanagementsys@gmail.com</a>
+          <p class="footer-link mt-2">351 Willow Street Franklin, MA 02038</p>
+          <a href="#" class="footer-link">701-573-7582</a>
+          <a href="#" class="footer-link">healthcare@temporary.net</a>
 
           <h5 class="mt-3">Social Media</h5>
           <div class="footer-sosmed mt-3">
